@@ -1,0 +1,121 @@
+{
+    "name": "hyperf-component/components",
+    "description": "Components for Hyperf.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "HyperfComponent",
+            "email": "guandeng@hotmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/hyperf-component/components/issues",
+        "source": "https://github.com/hyperf-component/components"
+    },
+    "require": {
+        "php": ">=8.1",
+        "composer/composer": "^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.52",
+        "hyperf/collection": "~3.1.0",
+        "hyperf/amqp": "~3.1.0",
+        "hyperf/async-queue": "~3.1.0",
+        "hyperf/cache": "~3.1.0",
+        "hyperf/code-parser": "~3.1.0",
+        "hyperf/codec": "~3.1.0",
+        "hyperf/command": "~3.1.0",
+        "hyperf/conditionable": "~3.1.0",
+        "hyperf/config-center": "~3.1.0",
+        "hyperf/consul": "~3.1.0",
+        "hyperf/context": "~3.1.0",
+        "hyperf/coroutine": "~3.1.0",
+        "hyperf/crontab": "~3.1.0",
+        "hyperf/database": "~3.1.0",
+        "hyperf/db": "~3.1.0",
+        "hyperf/db-connection": "~3.1.0",
+        "hyperf/di": "~3.1.0",
+        "hyperf/engine": "^2.0",
+        "hyperf/etcd": "~3.1.0",
+        "hyperf/filesystem": "~3.1.0",
+        "hyperf/framework": "~3.1.0",
+        "hyperf/grpc-client": "~3.1.0",
+        "hyperf/grpc-server": "~3.1.0",
+        "hyperf/json-rpc": "~3.1.0",
+        "hyperf/guzzle": "~3.1.0",
+        "hyperf/http-server": "~3.1.0",
+        "hyperf/http2-client": "~3.1.0",
+        "hyperf/ide-helper": "~3.1.0",
+        "hyperf/kafka": "~3.1.0",
+        "hyperf/logger": "~3.1.0",
+        "hyperf/macroable": "~3.1.0",
+        "hyperf/nacos": "~3.1.0",
+        "hyperf/paginator": "~3.1.0",
+        "hyperf/pipeline": "~3.1.0",
+        "hyperf/redis": "~3.1.0",
+        "hyperf/rpc": "~3.1.0",
+        "hyperf/rpc-client": "~3.1.0",
+        "hyperf/rpc-server": "~3.1.0",
+        "hyperf/scout": "~3.1.0",
+        "hyperf/session": "~3.1.0",
+        "hyperf/stringable": "~3.1.0",
+        "hyperf/support": "~3.1.0",
+        "hyperf/tappable": "~3.1.0",
+        "hyperf/tracer": "~3.1.0",
+        "hyperf/validation": "~3.1.0",
+        "hyperf/view": "~3.1.0",
+        "hyperf/view-engine": "~3.1.0",
+        "mockery/mockery": "^1.6",
+        "swoole/ide-helper": "dev-master",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^1.1"
+    },
+    "autoload": {
+        "files": [
+            "src/jwt/src/Functions.php"
+        ],
+        "psr-4": {
+            "HyperfComponent\\Jwt\\": "src/jwt/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyperfComponent\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "hyperf": {
+            "config": [
+                "HyperfComponent\\Jwt\\ConfigProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": false,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=-1",
+        "cs-fix": "@php vendor/bin/php-cs-fixer fix $1",
+        "json-fix": "@php ./bin/composer-json-fixer",
+        "test:unit": "@php vendor/bin/pest",
+        "test:types": "@php vendor/bin/pest --type-coverage",
+        "test": [
+            "@composer test:unit",
+            "@composer test:types"
+        ],
+        "pending": [
+            "./bin/pending-repositories.sh",
+            "@php ./bin/pending-composer-json",
+            "@php ./bin/composer-json-fixer",
+            "./bin/regenerate-readme.sh > README.md"
+        ]
+    }
+}

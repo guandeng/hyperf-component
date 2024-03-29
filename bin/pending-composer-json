@@ -1,0 +1,75 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf Component.
+ */
+use Symfony\Component\Finder\Finder;
+
+foreach ([__DIR__ . '/../../autoload.php', __DIR__ . '/../vendor/autoload.php', __DIR__ . '/vendor/autoload.php'] as $file) {
+    if (file_exists($file)) {
+        require $file;
+        break;
+    }
+}
+
+$files = Finder::create()
+    ->in(__DIR__ . '/../src')
+    ->name('composer.json')
+    ->files();
+
+$require = [];
+$autoload = [];
+$autoloadFiles = [];
+$autoloadDev = [
+    'HyperfComponent\\Tests\\' => 'tests/',
+];
+$configProviders = [];
+$replaces = [];
+
+foreach ($files as $file) {
+    $file = (string) $file->getRealPath();
+    $component = basename(dirname($file));
+    $composerJson = json_decode(file_get_contents($file));
+
+    // foreach ($composerJson->require as $package => &$version) {
+    //     if ($package == 'hyperf/engine') {
+    //         continue;
+    //     }
+    //     if (strpos($package, 'hyperf/') === 0) {
+    //         $version = '~3.1.0';
+    //     }
+    // }
+
+    if (! isset($composerJson->authors)) {
+        $composerJson->authors = [
+            [
+                'name' => 'huangdijia',
+                'email' => 'guandeng@hotmail.com',
+            ],
+        ];
+    }
+    $composerJson->license = 'MIT';
+    $composerJson->support = [
+        'issues' => 'https://github.com/HyperfComponent/components/issues',
+        'source' => 'https://github.com/HyperfComponent/components',
+    ];
+    $composerJson->extra->{'branch-alias'} = [
+        'dev-main' => '3.1-dev',
+    ];
+    if (isset($composerJson->{'require-dev'})) {
+        unset($composerJson->{'require-dev'});
+    }
+    if (isset($composerJson->{'autoload-dev'})) {
+        unset($composerJson->{'autoload-dev'});
+    }
+    if (isset($composerJson->scripts)) {
+        unset($composerJson->scripts);
+    }
+
+    file_put_contents(
+        $file,
+        json_encode($composerJson, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+    );
+}

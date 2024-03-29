@@ -1,0 +1,11 @@
+vendor
+composer.lock
+.phpunit.result.cache
+.phpunit.cache
+.bashrc
+.idea
+.vscode/launch.json
+*.bak
+rumtime
+phpunit.xml
+phpstan.neon

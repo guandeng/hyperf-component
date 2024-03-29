@@ -45,15 +45,15 @@ foreach ($files as $file) {
     if (! isset($composerJson->authors)) {
         $composerJson->authors = [
             [
-                'name' => 'huangdijia',
+                'name' => 'guandeng',
                 'email' => 'guandeng@hotmail.com',
             ],
         ];
     }
     $composerJson->license = 'MIT';
     $composerJson->support = [
-        'issues' => 'https://github.com/HyperfComponent/components/issues',
-        'source' => 'https://github.com/HyperfComponent/components',
+        'issues' => 'https://github.com/hyperf-component/components/issues',
+        'source' => 'https://github.com/hyperf-component/components',
     ];
     $composerJson->extra->{'branch-alias'} = [
         'dev-main' => '3.1-dev',

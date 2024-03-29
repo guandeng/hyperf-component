@@ -31,7 +31,7 @@ if [[ $# -eq 0 ]]; then
 fi
 
 for REPO in $REPOS ; do
-    remote $REPO git@github.com:HyperfComponent/${REPO}.git
+    remote $REPO git@github.com:hyperf-component/${REPO}.git
 
     split "src/$REPO" $REPO
 done

@@ -49,7 +49,7 @@ printf "%s %s %s %s\n" \
     "$(license components)" \
     "$(php_version_require components)"
 echo
-echo "The most popular components for Hyperf."
+echo "Components for Hyperf."
 echo 
 echo "## Repositories"
 echo
@@ -67,16 +67,5 @@ done
 echo
 
 cat <<EOF
-## Donate
-
-> If you like them, Buy me a cup of coffee. [Alipay](https://hdj.me/images/alipay-min.jpg) | [WeChat](https://hdj.me/images/wechat-pay-min.jpg)
-
-## Contact
-
-- [Twitter](https://twitter.com/huangdijia)
-- [Gmail](mailto:guandeng@hotmail.com)
-
 ## License
-
-[MIT](LICENSE)
 EOF

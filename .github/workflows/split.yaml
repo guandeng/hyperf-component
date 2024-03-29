@@ -11,7 +11,7 @@ on:
 jobs:
   split:
     name: Split on branch ${{ github.ref }}
-    if: github.repository == 'HyperfComponent/components'
+    if: github.repository == 'hyperf-component/components'
     runs-on: ubuntu-22.04
     env:
       SSH_PRIVATE_KEY: ${{ secrets.SPLIT_PRIVATE_KEY }}

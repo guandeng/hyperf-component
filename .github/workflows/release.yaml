@@ -30,7 +30,7 @@ jobs:
         run: |
           git config pull.rebase true
           git config --global user.email "guandeng@hotmail.com"
-          git config --global user.name "Deeka Wong"
+          git config --global user.name "guandeng"
 
           if [ -z "${{ github.event.inputs.tag }}" ]; then
             echo "Please input tag."

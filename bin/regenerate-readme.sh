@@ -53,19 +53,12 @@ echo "Components for Hyperf."
 echo 
 echo "## Repositories"
 echo
-echo "|Repository|Stable Version|Total Downloads|Monthly Downloads|"
-echo "|--|--|--|--|"
+echo "|Repository|Stable Version|"
+echo "|--|--|"
 
 for REPO in ${REPOS}; do
     printf "|%s|%s|%s|%s|%s|\n" \
-        "$(repository ${REPO})" \
-        "$(latest_stable_version ${REPO})" \
-        "$(total_downloads ${REPO})" \
-        "$(monthly_downloads ${REPO})"
+        "$(repository ${REPO})"
 done
 
 echo
-
-cat <<EOF
-## License
-EOF

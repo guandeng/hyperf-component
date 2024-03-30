@@ -82,7 +82,8 @@
             "src/jwt/src/Functions.php"
         ],
         "psr-4": {
-            "HyperfComponent\\Jwt\\": "src/jwt/src/"
+            "HyperfComponent\\Jwt\\": "src/jwt/src/",
+            "HyperfComponent\\Alarm\\": "src/alarm/src/"
         }
     },
     "autoload-dev": {
@@ -93,7 +94,8 @@
     "extra": {
         "hyperf": {
             "config": [
-                "HyperfComponent\\Jwt\\ConfigProvider"
+                "HyperfComponent\\Jwt\\ConfigProvider",
+                "HyperfComponent\\Alarm\\ConfigProvider"
             ]
         }
     },

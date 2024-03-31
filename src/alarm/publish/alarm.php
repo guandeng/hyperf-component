@@ -11,6 +11,7 @@ return [
 
     'title' => env('ALARM_TITLE', 'alarm'),
 
+    // Support use `,` to split: stdout stdout,logging
     'default' => env('ALARM_CHANNEL', 'stdout'),
 
     'channels' => [

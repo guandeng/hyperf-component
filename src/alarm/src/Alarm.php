@@ -75,7 +75,7 @@ class Alarm
     {
         $configs = config('alarm', []);
         if (! $configs) {
-            throw new AlarmException('lack of alarm config');
+            throw new AlarmException('Please publish alarm config');
         }
 
         if (! $configs['enable']) {
@@ -84,7 +84,7 @@ class Alarm
 
         $channels = array_filter(explode(',', $configs['default']));
         if (! $channels) {
-            return;
+            throw new AlarmException('Please set alarm default channel');
         }
 
         $sendType = null;

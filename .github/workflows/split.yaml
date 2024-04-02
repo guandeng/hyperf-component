@@ -7,7 +7,6 @@ on:
         description: 'Input repo name to split, e.g. sentry, cache, etc.'
         required: false
         default: ''
-pe
 
 jobs:
   split:

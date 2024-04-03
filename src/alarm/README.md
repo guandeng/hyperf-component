@@ -1,4 +1,4 @@
-# Hyperf Alaram
+# Hyperf Alarm
 
 
 The alarm component for Hyperf.

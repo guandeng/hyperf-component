@@ -19,17 +19,17 @@ class LoggingChannel implements ChannelInterface
         protected ContainerInterface $container,
         protected ConfigInterface $config
     ) {
-        $logCfg = $this->config->get('alarm.channels.logging');
+        $logCfg = $this->config->get('alarm.channels.logging', '');
         $this->logger = $this->container->get(LoggerFactory::class)->get($logCfg['name'], $logCfg['group']);
     }
 
     public function notice(array $data)
     {
-        $this->logger->notice($this->config->get('alarm.title'), $data);
+        $this->logger->notice($this->config->get('alarm.title', ''), $data);
     }
 
     public function warning(array $data)
     {
-        $this->logger->warning($this->config->get('alarm.title'), $data);
+        $this->logger->warning($this->config->get('alarm.title', ''), $data);
     }
 }

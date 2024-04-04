@@ -83,7 +83,9 @@
         ],
         "psr-4": {
             "HyperfComponent\\Jwt\\": "src/jwt/src/",
-            "HyperfComponent\\Alarm\\": "src/alarm/src/"
+            "HyperfComponent\\Alarm\\": "src/alarm/src/",
+            "HyperfComponent\\Auth\\": "src/auth/src/",
+            "HyperfComponent\\Hashing\\": "src/hashing/src/"
         }
     },
     "autoload-dev": {
@@ -95,7 +97,9 @@
         "hyperf": {
             "config": [
                 "HyperfComponent\\Jwt\\ConfigProvider",
-                "HyperfComponent\\Alarm\\ConfigProvider"
+                "HyperfComponent\\Alarm\\ConfigProvider",
+                "HyperfComponent\\Auth\\ConfigProvider",
+                "HyperfComponent\\Hashing\\ConfigProvider"
             ]
         }
     },

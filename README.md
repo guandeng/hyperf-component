@@ -6,8 +6,10 @@ Components for Hyperf.
 
 ## Repositories
 
-| Repository                                         | Stable Version |
-| -------------------------------------------------- | -------------- |
-| [jwt](https://github.com/hyperf-component/jwt)     |                |  |  |  |
-| [alarm](https://github.com/hyperf-component/alarm) |                |  |  |  |
+| Repository                                             | Stable Version |
+| ------------------------------------------------------ | -------------- |
+| [jwt](https://github.com/hyperf-component/jwt)         |                |  |  |  |
+| [alarm](https://github.com/hyperf-component/alarm)     |                |  |  |  |
+| [auth](https://github.com/hyperf-component/auth)       |                |  |  |  |
+| [hashing](https://github.com/hyperf-component/hashing) |                |  |  |  |
 

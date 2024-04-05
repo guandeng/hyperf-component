@@ -1,0 +1,43 @@
+{
+    "name": "hyperf-component/agent",
+    "type": "library",
+    "description": "The agent component for Hyperf.",
+    "keywords": [
+        "hyperf",
+        "v3.1"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "guandeng",
+            "email": "guandeng@hotmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/hyperf-component/components/issues",
+        "source": "https://github.com/hyperf-component/components"
+    },
+    "autoload": {
+        "files": [
+            "src/Functions.php"
+        ],
+        "psr-4": {
+            "HyperfComponent\\Hashing\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=8.1",
+        "mobiledetect/mobiledetectlib": "^4.8",
+        "jaybizzle/crawler-detect": "^1.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "hyperf": {
+            "config": "HyperfComponent\\Agent\\ConfigProvider"
+        },
+        "branch-alias": {
+            "dev-main": "3.1-dev"
+        }
+    }
+}

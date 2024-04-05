@@ -12,4 +12,5 @@ Components for Hyperf.
 | [alarm](https://github.com/hyperf-component/alarm)     |                |  |  |  |
 | [auth](https://github.com/hyperf-component/auth)       |                |  |  |  |
 | [hashing](https://github.com/hyperf-component/hashing) |                |  |  |  |
+| [agent](https://github.com/hyperf-component/agent)     |                |  |  |  |
 

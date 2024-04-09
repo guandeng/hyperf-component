@@ -26,8 +26,7 @@ class Jwt implements JwtInterface
         protected ManagerInterface $manager,
         protected RequestParserInterface $requestParser,
         protected Request $request
-    ) {
-    }
+    ) {}
 
     /**
      * Magically call the Jwt Manager.

@@ -22,38 +22,28 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
 {
     /**
      * The database connection instance.
-     *
-     * @var Connection
      */
-    protected $connection;
+    protected Connection $connection;
 
     /**
      * The Hasher implementation.
-     *
-     * @var DriverInterface
      */
-    protected $hasher;
+    protected DriverInterface $hasher;
 
     /**
      * The token database table.
-     *
-     * @var string
      */
-    protected $table;
+    protected string $table;
 
     /**
      * The number of seconds a token should last.
-     *
-     * @var int
      */
-    protected $expires;
+    protected int $expires;
 
     /**
      * Minimum number of seconds before re-redefining the token.
-     *
-     * @var int
      */
-    protected $throttle;
+    protected int $throttle;
 
     /**
      * Create a new token repository instance.

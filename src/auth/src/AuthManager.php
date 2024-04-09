@@ -26,24 +26,18 @@ class AuthManager implements AuthManagerInterface
 
     /**
      * The application instance.
-     *
-     * @var ContainerInterface
      */
-    protected $container;
+    protected ContainerInterface $container;
 
     /**
      * The config instance.
-     *
-     * @var ConfigInterface
      */
-    protected $config;
+    protected ConfigInterface $config;
 
     /**
      * The event dispatcher instance.
-     *
-     * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    protected EventDispatcherInterface $eventDispatcher;
 
     /**
      * Create a new Auth manager instance.
@@ -60,10 +54,8 @@ class AuthManager implements AuthManagerInterface
 
     /**
      * Attempt to get the guard from the local cache.
-     *
-     * @return GuardInterface|StatefulGuardInterface
      */
-    public function guard(?string $name = null): GuardInterface
+    public function guard(?string $name = null): GuardInterface|StatefulGuardInterface
     {
         $name = $name ?: $this->getDefaultDriver();
         $id = 'guards.' . $name;
@@ -75,7 +67,7 @@ class AuthManager implements AuthManagerInterface
      */
     public function getDefaultDriver(): string
     {
-        return $this->config->get('auth.default.guard');
+        return $this->config->get('auth.default.guard', '');
     }
 
     /**
@@ -150,10 +142,9 @@ class AuthManager implements AuthManagerInterface
     /**
      * Resolve the given guard.
      *
-     * @return GuardInterface|StatefulGuardInterface
      * @throws InvalidArgumentException
      */
-    protected function resolve(string $name)
+    protected function resolve(string $name): GuardInterface|StatefulGuardInterface
     {
         $config = $this->getConfig($name);
 

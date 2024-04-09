@@ -15,10 +15,10 @@ use HyperfComponent\Auth\Contracts\StatelessGuardInterface;
 use HyperfComponent\Auth\Contracts\UserProviderInterface;
 use HyperfComponent\Auth\EventHelpers;
 use HyperfComponent\Auth\GuardHelpers;
+use HyperfComponent\Jwt\Contracts\JwtInterface;
 use HyperfComponent\Jwt\Exceptions\JwtException;
 use HyperfComponent\Jwt\Exceptions\UserNotDefinedException;
 use HyperfComponent\Jwt\Jwt;
-use HyperfComponent\Jwt\JwtFactory;
 use HyperfComponent\Jwt\Payload;
 use HyperfComponent\Jwt\Token;
 use Psr\Container\ContainerInterface;
@@ -34,52 +34,33 @@ class JwtGuard implements StatelessGuardInterface
      * The name of the Guard. Typically "jwt".
      *
      * Corresponds to guard name in authentication configuration.
-     *
-     * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * The user we last attempted to retrieve.
-     *
-     * @var AuthenticatableInterface
      */
-    protected $lastAttempted;
+    protected AuthenticatableInterface $lastAttempted;
 
-    /**
-     * @var \Hyperf\Contract\ContainerInterface
-     */
-    protected $container;
+    protected ContainerInterface $container;
 
-    /**
-     * @var Jwt
-     */
-    protected $jwt;
+    protected Jwt $jwt;
 
-    /**
-     * @var RequestInterface
-     */
-    protected $request;
+    protected RequestInterface $request;
 
-    /**
-     * @var EventDispatcherInterface
-     */
-    protected $eventDispatcher;
+    protected EventDispatcherInterface $eventDispatcher;
 
-    /**
-     * Instantiate the class.
-     */
     public function __construct(
         ContainerInterface $container,
         RequestInterface $request,
-        JwtFactory $jwtFactory,
+        JwtInterface $jwtFactory,
         EventDispatcherInterface $eventDispatcher,
         UserProviderInterface $provider,
         string $name
     ) {
         $this->container = $container;
         $this->request = $request;
-        $this->jwt = $jwtFactory->make();
+        $this->jwt = $jwtFactory;
         $this->eventDispatcher = $eventDispatcher;
         $this->provider = $provider;
         $this->name = $name;
@@ -264,11 +245,9 @@ class JwtGuard implements StatelessGuardInterface
     /**
      * Set the token.
      *
-     * @param string|Token $token
-     *
      * @return $this
      */
-    public function setToken($token)
+    public function setToken(string|Token $token)
     {
         $this->jwt->setToken($token);
 
@@ -277,7 +256,7 @@ class JwtGuard implements StatelessGuardInterface
 
     public function getToken()
     {
-        return $this->jwt->getToken();
+        return $this->jwt->getToken([]);
     }
 
     public function getUser()

@@ -4,9 +4,8 @@ declare(strict_types=1);
 /**
  * This file is part of Hyperf Component.
  */
-use App\User;
+use App\Model\User;
 use HyperfComponent\Auth\Guards\JwtGuard;
-use HyperfComponent\Auth\Guards\SessionGuard;
 use HyperfComponent\Auth\Passwords\DatabaseTokenRepository;
 use HyperfComponent\Auth\UserProviders\ModelUserProvider;
 
@@ -44,7 +43,7 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => SessionGuard::class,
+            'driver' => JwtGuard::class,
             'provider' => 'users',
             'options' => [],
         ],

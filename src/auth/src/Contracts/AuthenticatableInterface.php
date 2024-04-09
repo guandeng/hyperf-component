@@ -16,10 +16,8 @@ interface AuthenticatableInterface
 
     /**
      * Get the unique identifier for the user.
-     *
-     * @return mixed
      */
-    public function getAuthIdentifier();
+    public function getAuthIdentifier(): mixed;
 
     /**
      * Get the password for the user.

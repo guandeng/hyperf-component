@@ -18,17 +18,13 @@ trait GuardHelpers
 {
     /**
      * The currently authenticated user.
-     *
-     * @var AuthenticatableInterface
      */
-    protected $user;
+    protected AuthenticatableInterface $user;
 
     /**
      * The user provider implementation.
-     *
-     * @var UserProviderInterface
      */
-    protected $provider;
+    protected UserProviderInterface $provider;
 
     /**
      * Determine if current user is authenticated. If not, throw an exception.
@@ -70,10 +66,8 @@ trait GuardHelpers
 
     /**
      * Get the ID for the currently authenticated user.
-     *
-     * @return null|int|string
      */
-    public function id()
+    public function id(): null|int|string
     {
         if ($this->user()) {
             return $this->user()->getAuthIdentifier();

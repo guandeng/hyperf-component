@@ -11,10 +11,8 @@ interface AuthManagerInterface
 {
     /**
      * Get a guard instance by name.
-     *
-     * @return GuardInterface|StatefulGuardInterface|StatelessGuardInterface
      */
-    public function guard(?string $name = null): GuardInterface;
+    public function guard(?string $name = null): GuardInterface|StatefulGuardInterface|StatelessGuardInterface;
 
     /**
      * Set the default guard the factory should serve.

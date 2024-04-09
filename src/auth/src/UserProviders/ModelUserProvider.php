@@ -13,7 +13,7 @@ use Hyperf\Stringable\Contracts\Arrayable;
 use Hyperf\Stringable\Str;
 use HyperfComponent\Auth\Contracts\AuthenticatableInterface;
 use HyperfComponent\Auth\Contracts\UserProviderInterface;
-use HyperfComponent\Hashing\Contract\DriverInterface as HasherInterface;
+use HyperfComponent\Hashing\Contract\DriverInterface;
 use HyperfComponent\Hashing\Contract\HashInterface;
 
 class ModelUserProvider implements UserProviderInterface
@@ -21,7 +21,7 @@ class ModelUserProvider implements UserProviderInterface
     /**
      * The hasher implementation.
      */
-    protected HashInterface $hasher;
+    protected DriverInterface $hasher;
 
     /**
      * The Eloquent user model.
@@ -34,7 +34,8 @@ class ModelUserProvider implements UserProviderInterface
     public function __construct(HashInterface $hash, array $options)
     {
         $this->model = $options['model'] ?? null;
-        $this->hasher = ($hasher = $options['hash_driver'] ?? null) instanceof HasherInterface
+        $hasher = $options['hash_driver'] ?? null;
+        $this->hasher = $hasher instanceof DriverInterface
             ? $hasher
             : $hash->getDriver($hasher);
     }

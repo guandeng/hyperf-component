@@ -16,20 +16,15 @@ use HyperfComponent\Auth\Contracts\AuthenticatableInterface;
 use HyperfComponent\Auth\Contracts\AuthManagerInterface;
 use HyperfComponent\Auth\Exceptions\AuthenticationException;
 
-/**
- * @Aspect
- */
+#[Aspect]
 class AuthAspect extends AbstractAspect
 {
     public array $annotations = [
         Auth::class,
     ];
 
-    /**
-     * @Inject
-     * @var AuthManagerInterface
-     */
-    protected $auth;
+    #[Inject()]
+    protected AuthManagerInterface $auth;
 
     public function process(ProceedingJoinPoint $proceedingJoinPoint)
     {

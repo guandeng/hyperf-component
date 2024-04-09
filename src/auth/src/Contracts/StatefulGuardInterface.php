@@ -38,10 +38,8 @@ interface StatefulGuardInterface extends GuardInterface
      * Log the given user ID into the application without sessions or cookies.
      *
      * @param mixed $id
-     *
-     * @return AuthenticatableInterface|bool
      */
-    public function onceUsingId($id);
+    public function onceUsingId($id): AuthenticatableInterface|bool;
 
     /**
      * Determine if the user was authenticated via "remember me" cookie.

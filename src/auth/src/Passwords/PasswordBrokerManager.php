@@ -33,10 +33,8 @@ class PasswordBrokerManager implements PasswordBrokerManagerInterface
 
     /**
      * The config instance.
-     *
-     * @var ConfigInterface
      */
-    protected $config;
+    protected ConfigInterface $config;
 
     /**
      * The auth manager instance.
@@ -45,10 +43,8 @@ class PasswordBrokerManager implements PasswordBrokerManagerInterface
 
     /**
      * The array of created "drivers".
-     *
-     * @var array
      */
-    protected $brokers = [];
+    protected array $brokers = [];
 
     /**
      * Create a new PasswordBroker manager instance.

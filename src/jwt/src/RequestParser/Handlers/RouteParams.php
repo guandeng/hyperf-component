@@ -14,8 +14,6 @@ class RouteParams implements ParserContract
 {
     use KeyTrait;
 
-    private string $key;
-
     public function parse(Request $request): mixed
     {
         return $request->route($this->key);

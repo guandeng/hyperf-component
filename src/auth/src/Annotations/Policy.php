@@ -7,16 +7,11 @@ declare(strict_types=1);
 
 namespace HyperfComponent\Auth\Annotations;
 
+use Attribute;
 use Hyperf\Di\Annotation\AbstractAnnotation;
 use InvalidArgumentException;
 
-/**
- * @Annotation
- * @Target("CLASS")
- * @Attributes({
- *     @Attribute("models", type="array")
- * })
- */
+#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 class Policy extends AbstractAnnotation
 {
     /**
@@ -24,7 +19,7 @@ class Policy extends AbstractAnnotation
      */
     public $models;
 
-    public function __construct($value = null, $aa = null)
+    public function __construct(?array $value = null)
     {
         // parent::__construct($value);
         if (isset($value['value'])) {

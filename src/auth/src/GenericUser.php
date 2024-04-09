@@ -7,9 +7,9 @@ declare(strict_types=1);
 
 namespace HyperfComponent\Auth;
 
-use HyperfComponent\Auth\Contracts\AuthenticatableInterface as UserContract;
+use HyperfComponent\Auth\Contracts\AuthenticatableInterface;
 
-class GenericUser implements UserContract
+class GenericUser implements AuthenticatableInterface
 {
     /**
      * All of the user's attributes.
@@ -72,10 +72,8 @@ class GenericUser implements UserContract
 
     /**
      * Get the unique identifier for the user.
-     *
-     * @return mixed
      */
-    public function getAuthIdentifier()
+    public function getAuthIdentifier(): mixed
     {
         return $this->attributes[$this->getAuthIdentifierName()];
     }

@@ -12,6 +12,9 @@ use Hyperf\Contract\ContainerInterface;
 
 use function Hyperf\Support\make;
 
+/**
+ * @method bool getToken()
+ */
 class JwtFactory
 {
     public function __invoke(ContainerInterface $container)

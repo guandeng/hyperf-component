@@ -7,12 +7,10 @@ declare(strict_types=1);
 
 namespace HyperfComponent\Auth\Annotations;
 
+use Attribute;
 use Hyperf\Di\Annotation\AbstractAnnotation;
 
-/**
- * @Annotation
- * @Target({"CLASS", "METHOD"})
- */
+#[Attribute(Attribute::TARGET_METHOD | Attribute::TARGET_CLASS)]
 class Auth extends AbstractAnnotation
 {
     /**
@@ -25,7 +23,7 @@ class Auth extends AbstractAnnotation
      */
     public $passable;
 
-    public function __construct($value = null)
+    public function __construct(public ?array $value = null)
     {
         // parent::__construct();
         if (isset($value['value'])) {

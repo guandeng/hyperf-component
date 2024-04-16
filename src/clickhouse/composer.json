@@ -1,0 +1,43 @@
+{
+    "name": "hyperf-component/clickhouse",
+    "type": "library",
+    "description": "The clickhouse component for Hyperf.",
+    "keywords": [
+        "hyperf",
+        "v3.1"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "guandeng",
+            "email": "guandeng@hotmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/hyperf-component/components/issues",
+        "source": "https://github.com/hyperf-component/components"
+    },
+    "autoload": {
+        "psr-4": {
+            "HyperfComponent\\Clickhouse\\": "src/"
+        }
+    },
+    "require": {
+        "hyperf/database": "~3.1.0",
+        "hyperf/db-connection": "~3.1.0",
+        "hyperf/di": "~3.1.0",
+        "hyperf/pool": "~3.1.0",
+        "smi2/phpclickhouse": "^1.5",
+        "the-tinderbox/clickhouse-builder": "^5.3"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "hyperf": {
+            "config": "HyperfComponent\\Clickhouse\\ConfigProvider"
+        },
+        "branch-alias": {
+            "dev-main": "3.1-dev"
+        }
+    }
+}

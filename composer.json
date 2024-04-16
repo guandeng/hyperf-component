@@ -85,7 +85,8 @@
             "HyperfComponent\\Jwt\\": "src/jwt/src/",
             "HyperfComponent\\Alarm\\": "src/alarm/src/",
             "HyperfComponent\\Auth\\": "src/auth/src/",
-            "HyperfComponent\\Hashing\\": "src/hashing/src/"
+            "HyperfComponent\\Hashing\\": "src/hashing/src/",
+            "HyperfComponent\\Clickhouse\\": "src/clickhouse/src/"
         }
     },
     "autoload-dev": {
@@ -99,7 +100,8 @@
                 "HyperfComponent\\Jwt\\ConfigProvider",
                 "HyperfComponent\\Alarm\\ConfigProvider",
                 "HyperfComponent\\Auth\\ConfigProvider",
-                "HyperfComponent\\Hashing\\ConfigProvider"
+                "HyperfComponent\\Hashing\\ConfigProvider",
+                "HyperfComponent\\Clickhouse\\ConfigProvider"
             ]
         }
     },
